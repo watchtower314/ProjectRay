@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">CAK2.2</string>
+    <string name="create">יצירה</string>
+    <string name="black">שחור</string>
+    <string name="burgundy">בורדו</string>
+    <string name="clearAll">מחק הכל</string>
+    <string name="color">צבע</string>
+    <string name="cyan">תכלת</string>
+    <string name="darkBrown">חום כהה</string>
+    <string name="darkGray">אפור כהה</string>
+    <string name="darkGreen">ירוק</string>
+    <string name="fuchsiaPink">ורוד פוקסיה</string>
+    <string name="git">סגול עמוק</string>
+    <string name="lightBlue">כחול ים</string>
+    <string name="lightBrown">חום מוקה</string>
+    <string name="lightGray">אפור בהיר</string>
+    <string name="lightGreen">ירוק דשא</string>
+    <string name="morePink">ורוד עתיק</string>
+    <string name="orange">כתום</string>
+    <string name="patterns">דוגמאות</string>
+    <string name="pink">ורוד</string>
+    <string name="red">אדום</string>
+    <string name="royal">כחול רויאל</string>
+    <string name="title_activity_how_to">איך יוצרים דוגמא</string>
+    <string name="title_activity_info">אודות</string>
+    <string name="turq">טורקיז</string>
+    <string name="undo">בטל</string>
+    <string name="white">לבן</string>
+    <string name="yellow">צהוב</string>
+    <string name="title_activity_default_pattern_screen">דוגמאות</string>
+    <string name="title_activity_default_patterns_screen">דוגמאות</string>
+    <string name="erase">מחק</string>
+
+</resources>

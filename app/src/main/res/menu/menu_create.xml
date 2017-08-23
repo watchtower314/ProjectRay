@@ -1,0 +1,199 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context="dot.ejemplo.moore.cak22.Create">
+
+
+    <item
+        android:id="@+id/newFile"
+        android:title="newFile"
+        app:showAsAction="always"
+        android:icon="@android:drawable/ic_menu_add">
+
+    </item>
+
+    <item
+        android:id="@+id/open"
+        android:icon="@drawable/open"
+        android:title="openFile"
+        app:showAsAction="always"
+        >
+    </item>
+
+
+    <item
+        android:id="@+id/save"
+        android:icon="@android:drawable/ic_menu_save"
+        android:title="save"
+        app:showAsAction="always"
+        />
+
+
+    <item android:id="@+id/eraseBox"
+        android:icon="@android:drawable/ic_menu_delete"
+        android:title="eraseBox"
+        app:showAsAction="always">
+
+        <menu>
+
+            <item
+                android:id="@+id/clrAll"
+                android:title="@string/clearAll"
+                android:onClick="clearAll"
+                />
+            <item android:id="@+id/clrOne"
+                android:title="@string/clearOne"
+                android:onClick="erase"
+                />
+
+        </menu>
+
+    </item>
+
+    <item android:id="@+id/colorBox"
+        android:icon="@drawable/paint"
+        android:title="@string/color"
+        app:showAsAction="always"
+        >
+        <menu>
+
+            <item
+                android:id="@+id/cWhite"
+                android:title="@string/white"
+                android:icon="@drawable/white"
+                android:onClick="changeColor"
+                />
+            <item
+                android:id="@+id/cBlack"
+                android:title="@string/black"
+                android:icon="@drawable/negro"
+                android:onClick="changeColor"
+                />
+            <item
+                android:id="@+id/cLightGray"
+                android:title="@string/lightGray"
+                android:icon="@drawable/light_gray"
+                android:onClick="changeColor"
+
+                />
+            <item
+                android:id="@+id/cDarkGray"
+                android:title="@string/darkGray"
+                android:icon="@drawable/dark_gray"
+                android:onClick="changeColor"
+                />
+            <item
+                android:id="@+id/cBrown"
+                android:title="@string/darkBrown"
+                android:icon="@drawable/brown"
+                android:onClick="changeColor"
+                />
+            <item
+                android:id="@+id/cLightBrown"
+                android:title="@string/lightBrown"
+                android:icon="@drawable/light_brown"
+                android:onClick="changeColor"
+                />
+            <item
+                android:id="@+id/cYellow"
+                android:title="@string/yellow"
+                android:icon="@drawable/amarillo"
+                android:onClick="changeColor"
+                />
+            <item
+                android:id="@+id/cOrange"
+                android:title="@string/orange"
+                android:icon="@drawable/orange"
+                android:onClick="changeColor"
+                />
+            <item
+                android:id="@+id/cRojo"
+                android:title="@string/burgundy"
+                android:icon="@drawable/rojo"
+                android:onClick="changeColor"
+                />
+            <item
+                android:id="@+id/cRed"
+                android:title="@string/red"
+                android:icon="@drawable/red"
+                android:onClick="changeColor"
+                />
+            <item
+                android:id="@+id/cBlue"
+                android:title="@string/royal"
+                android:icon="@drawable/royal"
+                android:onClick="changeColor"
+
+                />
+            <item
+                android:id="@+id/cLightBlue"
+                android:title="@string/lightBlue"
+                android:icon="@drawable/light_blue"
+                android:onClick="changeColor"
+                />
+
+            <item
+                android:id="@+id/cCyan"
+                android:title="@string/cyan"
+                android:icon="@drawable/torq"
+                android:onClick="changeColor"
+                />
+            <item
+                android:id="@+id/cTurq"
+                android:title="@string/turq"
+                android:icon="@drawable/torq2"
+                android:onClick="changeColor"
+                />
+            <item
+                android:id="@+id/cAndroidGreen"
+                android:title="@string/darkGreen"
+                android:icon="@drawable/dark_green"
+                android:onClick="changeColor"
+                />
+            <item
+                android:id="@+id/cGrassGreen"
+                android:title="@string/lightGreen"
+                android:icon="@drawable/light_green"
+                android:onClick="changeColor"
+                />
+            <item
+                android:id="@+id/cGit"
+                android:title="@string/git"
+                android:icon="@drawable/git"
+                android:onClick="changeColor"
+                />
+
+            <item
+                android:id="@+id/cFuchsiaPink"
+                android:title="@string/fuchsiaPink"
+                android:icon="@drawable/fuchsia_pink"
+                android:onClick="changeColor"
+                />
+            <item
+                android:id="@+id/cPink"
+                android:title="@string/pink"
+                android:icon="@drawable/pink"
+                android:onClick="changeColor"
+                />
+            <item
+                android:id="@+id/cOldPink"
+                android:title="@string/morePink"
+                android:icon="@drawable/more_pink"
+                android:onClick="changeColor"
+                />
+
+
+
+        </menu>
+    </item>
+
+
+    <item android:id="@+id/undo"
+        android:icon="@android:drawable/ic_menu_revert"
+        android:title="@string/undo"
+        app:showAsAction="always"
+        android:onClick="undo"
+        />
+
+
+</menu>

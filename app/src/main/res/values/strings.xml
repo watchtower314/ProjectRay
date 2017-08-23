@@ -1,0 +1,102 @@
+<resources>
+    <string name="app_name">CAK2.2</string>
+    <string name="app_nombre">Create A Kipa</string>
+
+    <string name="create">Create</string>
+    <string name="patterns">Patterns</string>
+    <string name="welcome">Welcome!</string>
+    <string name="color">Color</string>
+    <string name="clearAll">Clear all</string>
+    <string name="clearOne">Eraser</string>
+    <string name="erase">Erase</string>
+    <string name="undo">Undo</string>
+    <string name="back">Return</string>
+    <string name="saveB4Clear">Do you want to save changes?</string>
+    <string name="yes">Yes</string>
+    <string name="no">No</string>
+    <string name="patternName">Pattern name:</string>
+    <string name="save">Save</string>
+    <string name="ChooseName">Choose a file name</string>
+    <string name="fileExists">File name is taken, choose a different name</string>
+    <string name="cancel">Cancel</string>
+    <string name="openFile">Open pattern file</string>
+    <string name="loading">Loading...</string>
+
+    <string name="white">White</string>
+    <string name="black">Black</string>
+    <string name="lightGray">Light Gray</string>
+    <string name="darkGray">Dark Gray</string>
+    <string name="darkBrown">Dark Brown</string>
+    <string name="lightBrown">Mocha Brown</string>
+    <string name="yellow">Yellow</string>
+    <string name="orange">Orange</string>
+    <string name="burgundy">Burgundy</string>
+    <string name="red">Red</string>
+    <string name="royal">Royal Blue</string>
+    <string name="lightBlue">Sea Blue</string>
+    <string name="cyan">Cyan</string>
+    <string name="turq">Turquoise</string>
+    <string name="darkGreen">Android Green</string>
+    <string name="lightGreen">Grass Green</string>
+    <string name="git">Deep Purple</string>
+    <string name="fuchsiaPink">Fuchsia Pink</string>
+    <string name="pink">Pink</string>
+    <string name="morePink">Old Pink</string>
+
+
+    <string name="superman">Superman</string>
+    <string name="apple">Apple</string>
+    <string name="bmw">BMW</string>
+    <string name="ck">Calvin Klien</string>
+    <string name="dd">Dunkin Donuts</string>
+    <string name="droid">Android</string>
+    <string name="facebook">Facebook</string>
+    <string name="handicapped">Handicapped Sign</string>
+    <string name="iHeartNy">I Love NY</string>
+    <string name="il">Israel</string>
+    <string name="lowBattery">Low Battery</string>
+    <string name="minion">Minion</string>
+    <string name="nike">Nike</string>
+    <string name="noEntry">No Entry</string>
+    <string name="noSmoking">No Smoking</string>
+    <string name="tommy">Tommy Hilfiger</string>
+    <string name="wifi">Wifi</string>
+
+
+    <color name="rojo">#AD2F0C</color>
+    <color name="amarillo">#F2CD3C</color>
+    <color name="blanco">#ffffff</color>
+    <color name="negro">#000000</color>
+    <color name="lightGray">#B7B3B3</color>
+    <color name="darkGray">#898686</color>
+    <color name="red">#ff0000</color>
+    <color name="royal">#0009ff</color>
+    <color name="seaBlue">#1779F9</color>
+
+    <color name="lighterBlue">#4996fa</color>
+
+    <color name="orange">#F58505</color>
+    <color name="cyan">#25A4DA</color>
+    <color name="turquoise">#05A6C3</color>
+    <color name="grassGreen">#04C327</color>
+    <color name="androidGreen">#16862A</color>
+    <color name="git">#86167D</color>
+    <color name="pink">#E455D8</color>
+    <color name="oldPink">#E77EAE</color>
+    <color name="fuchsiaPink">#f20e75</color>
+    <color name="brown">#9e5006</color>
+    <color name="mochaBrown">#af9e4f06</color>
+    <color name="blancoTrans">#90ffffff</color>
+    <color name="backGround">#e2dfdf</color>
+
+
+    <string name="action_settings">Settings</string>
+    <string name="title_activity_create"></string>
+    <string name="title_activity_default_patterns_screen">Default Patterns</string>
+    <string name="title_activity_how_to">How To Create A Kipa</string>
+    <string name="title_activity_info">Info</string>
+
+    <string name="hello_world">Hello world!</string>
+    <string name="title_activity_default_pattern_screen">Patterns</string>
+
+</resources>

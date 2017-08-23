@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="a1.cak.moore.cak_finale">
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/logo1"
+        android:label="@string/app_name"
+        android:theme="@style/AppTheme">
+        <activity
+            android:name=".MenuScreen"
+            android:label="@string/app_nombre"
+            android:screenOrientation="portrait">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".Create"
+            android:label="@string/title_activity_create"
+            android:parentActivityName=".MenuScreen"
+            android:screenOrientation="portrait"></activity>
+        <activity
+            android:name=".DefaultPatternsScreen"
+            android:label="@string/title_activity_default_pattern_screen"
+            android:parentActivityName=".MenuScreen"
+            android:screenOrientation="portrait"></activity>
+        <activity
+            android:name=".HowTo"
+            android:label="@string/title_activity_how_to"
+            android:parentActivityName=".MenuScreen"
+            android:screenOrientation="portrait"></activity>
+        <activity
+            android:name=".Info"
+            android:label="@string/title_activity_info"
+            android:parentActivityName=".MenuScreen"
+            android:screenOrientation="portrait"></activity>
+
+    </application>
+
+</manifest>
