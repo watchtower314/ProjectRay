@@ -94,35 +94,7 @@ public class DefaultPatternsScreen extends AppCompatActivity {
         // automatically handle clicks on the Home/Up button, so long
         // as you specify a parent activity in AndroidManifest.xml.
         Log.d("TKT_defPatScreen","onOptionItemSelect");
-        int id = item.getItemId();
-
-        //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
-            return true;
-        }
-
         return super.onOptionsItemSelected(item);
     }
-    /*
-        works just fine, but useless right now
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_default_patterns_screen, menu); //
-        return true;
-    }
-    */
-
-
-
-/*
-works just fine but useless right now
-    public void goBackToMenuScreen(MenuItem v)
-    {
-        //setContentView(R.layout.activity_menu_screen);
-        Intent intent=new Intent(this,MenuScreen.class);
-        startActivity(intent);
-    }
-    */
 
 }

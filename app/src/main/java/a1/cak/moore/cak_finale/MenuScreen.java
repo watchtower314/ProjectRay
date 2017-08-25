@@ -8,15 +8,10 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 
-import com.google.android.gms.ads.AdRequest;
-import com.google.android.gms.ads.InterstitialAd;
-
 
 public class MenuScreen extends AppCompatActivity {
 
-    //// TODO: 8/19/2017 splashscreen, save patterns and load them (from menu bar),clear all option, consider zoom inout with finger pinch, maybe make create screen larger 
-    
-    InterstitialAd mInterstitialAd;
+    //InterstitialAd mInterstitialAd;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,6 +37,7 @@ public class MenuScreen extends AppCompatActivity {
         */
     }
 
+    /*
     private void requestNewInterstitial() {
         AdRequest adRequest = new AdRequest.Builder()
                 .build();
@@ -49,7 +45,7 @@ public class MenuScreen extends AppCompatActivity {
         mInterstitialAd.loadAd(adRequest);
     }
 
-
+*/
     public void begin()
     {
         //this is not the ideal way to have a splash, but that's the best for now...
@@ -58,11 +54,6 @@ public class MenuScreen extends AppCompatActivity {
         Intent intent = new Intent(this, Create.class);
         startActivity(intent);;
     }
-
-
-
-
-
 
     public void goToCreateScreen(View v)
     {
@@ -104,6 +95,13 @@ public class MenuScreen extends AppCompatActivity {
         Intent intent=new Intent(this, Info.class);
         startActivity(intent);
     }
+
+    @Override
+    protected void onResume() {
+        setContentView(R.layout.activity_menu_screen);
+        super.onResume();
+    }
+
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {

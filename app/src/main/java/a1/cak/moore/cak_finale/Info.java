@@ -20,13 +20,6 @@ public class Info extends AppCompatActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
 
         Log.d("TKT_info","onOptionMenu");
-        int id = item.getItemId();
-
-        //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
-            return true;
-        }
-
         return super.onOptionsItemSelected(item);
     }
 

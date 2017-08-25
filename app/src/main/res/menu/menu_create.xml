@@ -192,7 +192,6 @@
         android:icon="@android:drawable/ic_menu_revert"
         android:title="@string/undo"
         app:showAsAction="always"
-        android:onClick="undo"
         />
 
 

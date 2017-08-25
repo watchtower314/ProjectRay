@@ -5,7 +5,7 @@
     <application
         android:allowBackup="true"
         android:icon="@mipmap/logo1"
-        android:label="@string/app_name"
+        android:label="@string/app_nombre"
         android:theme="@style/AppTheme">
         <activity
             android:name=".MenuScreen"

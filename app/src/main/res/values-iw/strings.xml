@@ -31,5 +31,22 @@
     <string name="title_activity_default_pattern_screen">דוגמאות</string>
     <string name="title_activity_default_patterns_screen">דוגמאות</string>
     <string name="erase">מחק</string>
+    <string name="ChooseName">בחרו שם לדוגמא</string>
+    <string name="action_settings"></string>
+    <string name="cancel">בטל</string>
+    <string name="clearOne">מחק</string>
+    <string name="deleteFile">מחיקת דוגמא</string>
+    <string name="emptyPattern">אין אפשרות לשמור דוגמא ריקה</string>
+    <string name="eraser">מחק</string>
+    <string name="fileExists">שם זה תפוס, בחרו שם אחר</string>
+    <string name="fileSaved">הדוגמא נשמרה</string>
+    <string name="loading">טוען...</string>
+    <string name="newFile">דוגמא חדשה</string>
+    <string name="no">לא</string>
+    <string name="openFile">פתיחת דוגמא שמורה</string>
+    <string name="patternName">שם הדוגמא:</string>
+    <string name="save">שמירה</string>
+    <string name="saveB4Clear">האם לשמור שינויים?</string>
+    <string name="yes">כן</string>
 
 </resources>

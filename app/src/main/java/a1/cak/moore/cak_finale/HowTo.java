@@ -23,12 +23,6 @@ public class HowTo extends AppCompatActivity {
         // as you specify a parent activity in AndroidManifest.xml.
         Log.d("TKT_howTo","onOptionMenu");
         int id = item.getItemId();
-
-        //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
-            return true;
-        }
-
         return super.onOptionsItemSelected(item);
     }
 
