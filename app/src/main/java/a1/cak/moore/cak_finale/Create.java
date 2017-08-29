@@ -33,13 +33,10 @@ import java.util.Map;
 import java.util.Stack;
 
 public class Create extends AppCompatActivity {
+    public final String WHITE="White", NEGRO="negro", LIGHT_GRAY="lightGray", DARK_GRAY="darkGray", BROWN="brown", MOCHA_BROWN="mochaBrown", AMARILLO="amarillo", ORANGE="orange", ROJO="rojo", ROYAL="royal", SEA_BLUE="seaBlue", CYAN="cyan", TURQ="turquoise", ANDROID_GREEN="androidGreen", GRASS_GREEN="grassGreen", GIT="git", FUCHSIA="fuchsiaPink", PINK="pink", OLD_PINK="oldPink", RED="red";
 
-    /* TODO: 8/25/2017 problem with coloring and decoloring - state isn't mt when needs to be mt: happens when coloring with different colors, mb not though, seemed fine after second trial - check this
-                        check state after eraser was chosen
-                        check what happens when undo pressed and supposedly updates state and stacie
-                        problem with brown and mocha brown
+    /* TODO: 8/25/2017 problem with brown and mocha brown
                         consider centering toast text
-                        on actionBar backpress and backPress - if canvas is clean - don't show save changes dialog
 
 
 
@@ -52,13 +49,13 @@ public class Create extends AppCompatActivity {
      * TAG: keeps track of button tags
      * state: hashmap that stores the current state of the gridView, and when user wants to save pattern, state is saved as a file in internal db, to be retrieved later when user wants to
      */
-    public static int currentColor;
+    public static int currentColor = R.color.negro;
     Stack<Button> stacie = new Stack<Button>();
     Stack<Integer>prevColors = new Stack<Integer>();
     ZoomControls zoom;//##
     public static int howManyZooms=0;//##
     ScrollView scrollView;
-    String TAG="negro";
+    String TAG=NEGRO;
     Context context;
     HashMap<Integer, String> state = new HashMap<Integer, String>();
 
@@ -71,7 +68,8 @@ public class Create extends AppCompatActivity {
         Log.d("TKT_create","onCreate");
         setContentView(R.layout.activity_create);
         zoom = (ZoomControls)findViewById(R.id.zoomControls);
-        currentColor= ContextCompat.getColor(this, R.color.negro);
+        //currentColor= ContextCompat.getColor(this, R.color.negro);
+        currentColor = R.color.negro;
         scrollView=(ScrollView)findViewById(R.id.scrollVista);
         context = this;
 
@@ -122,30 +120,44 @@ public class Create extends AppCompatActivity {
     public void blackening(View v)
     {
 
-        Log.d("TKT_create","blackening");
+        Log.d("TKT_create","blackening with TAG: " +TAG);
+        Log.d("TKT_create","getTag(): "+v.getTag());
         int prevColor = getColor(v.getTag().toString());
+        Log.d("TKT_create","prevCol: "+prevColor);
+        Log.d("TKT_create","currentColor "+currentColor);
         if(prevColor != currentColor)
         {//color it currentColor
             Log.d("TKT_create","prev != curr");
-            v.setBackgroundColor(currentColor);
+            v.setBackgroundColor(ContextCompat.getColor(this, currentColor));
             stacie.add((Button)v);
             prevColors.add(prevColor);
             v.setTag(TAG);
-            if(TAG != "white")
+            if(!TAG.equalsIgnoreCase(WHITE)) {
                 state.put(v.getId(), TAG);
-            else
+                Log.d("TKT_create","TAG: "+TAG);
+            }
+            else {
                 state.remove(v.getId());
+                Log.d("TKT_create","state.remove");
+
+            }
             Log.d("TKT_create","isStateMT: "+state.isEmpty());
-            Log.d("TKT_create","TAG: "+TAG);
+            Log.d("TKT_create","stateSize: "+state.size());
+
         }
         else
             {//color it white
             Log.d("TKT_create","prev == curr");
-            v.setBackgroundColor(ContextCompat.getColor(this, R.color.blanco));
-            stacie.add((Button)v);
-            prevColors.add(currentColor);
-            v.setTag("white");
-            state.remove(v.getId());
+            String removed = state.remove(v.getId());
+            Log.d("TKT_create","removedIsNull? "+removed);
+            if(removed != null)
+            {
+                v.setBackgroundColor(ContextCompat.getColor(this, R.color.blanco));
+                prevColors.add(currentColor);
+                v.setTag(WHITE);
+                stacie.add((Button)v);
+            }
+            Log.d("TKT_create","stateSize: "+state.size());
             Log.d("TKT_create","isMTState: "+state.isEmpty());
             //state.put(v.getId(), "white");
         }
@@ -170,8 +182,8 @@ public class Create extends AppCompatActivity {
     public void erase(MenuItem m)
     {//erase one
         Log.d("TKT_create","erase");
-        currentColor=ContextCompat.getColor(this, R.color.blanco); //getResources().getColor(R.color.blanco);
-        TAG = "white";
+        currentColor=R.color.blanco;
+        TAG = WHITE;
         Toast.makeText(this, R.string.clearOne, Toast.LENGTH_SHORT).show();
     }
 
@@ -262,6 +274,7 @@ public class Create extends AppCompatActivity {
                 {
                     Log.d("TKT_create","newFile is mt");
                     Toast.makeText(context, R.string.newFile, Toast.LENGTH_SHORT).show();
+                    cleanSlate();
                 }
 
 
@@ -302,142 +315,142 @@ public class Create extends AppCompatActivity {
 
         switch (v.getItemId()) {
             case R.id.cWhite: {
-                currentColor = ContextCompat.getColor(this,R.color.blanco);
+                currentColor = R.color.blanco;
                 Log.d("TKT_create","white");
-                TAG="white";
+                TAG=WHITE;
                 Toast.makeText(context, R.string.white, Toast.LENGTH_SHORT).show();
                 break;
             }
             case R.id.cBlack: {
-                currentColor = ContextCompat.getColor(this,R.color.negro);
+                currentColor = R.color.negro;
                 Log.d("TKT_create","negro");
-                TAG="negro";
+                TAG=NEGRO;
                 Toast.makeText(context, R.string.black, Toast.LENGTH_SHORT).show();
                 break;
             }
             case R.id.cLightGray: {
-                currentColor = ContextCompat.getColor(this,R.color.lightGray);
+                currentColor = R.color.lightGray;
                 Log.d("TKT_create","lightGray");
-                TAG="lightGray";
+                TAG=LIGHT_GRAY;
                 Toast.makeText(context, R.string.lightGray, Toast.LENGTH_SHORT).show();
                 break;
             }
             case R.id.cDarkGray: {
-                currentColor = ContextCompat.getColor(this,R.color.darkGray);
+                currentColor = R.color.darkGray;
                 Log.d("TKT_create","darkGray");
-                TAG="darkGray";
+                TAG=DARK_GRAY;
                 Toast.makeText(context, R.string.darkGray, Toast.LENGTH_SHORT).show();
                 break;
             }
             case R.id.cBrown: {
-                currentColor = ContextCompat.getColor(this,R.color.brown);
+                currentColor = R.color.brown;
                 Log.d("TKT_create","brown");
-                TAG="brown";
+                TAG=BROWN;
                 Toast.makeText(context, R.string.darkBrown, Toast.LENGTH_SHORT).show();
                 break;
             }
             case R.id.cLightBrown: {
-                currentColor = ContextCompat.getColor(this,R.color.mochaBrown);
+                currentColor = R.color.mochaBrown;
                 Log.d("TKT_create","mochaBrown");
-                TAG="mochaBrown";
+                TAG=MOCHA_BROWN;
                 Toast.makeText(context, R.string.lightBrown, Toast.LENGTH_SHORT).show();
                 break;
             }
             case R.id.cYellow: {
-                currentColor = ContextCompat.getColor(this,R.color.amarillo);
+                currentColor = R.color.amarillo;
                 Log.d("TKT_create","amarillo");
-                TAG="amarillo";
+                TAG=AMARILLO;
                 Toast.makeText(context, R.string.yellow, Toast.LENGTH_SHORT).show();
                 break;
             }
             case R.id.cOrange: {
-                currentColor = ContextCompat.getColor(this,R.color.orange);
+                currentColor = R.color.orange;
                 Log.d("TKT_create","orange");
-                TAG="orange";
+                TAG=ORANGE;
                 Toast.makeText(context, R.string.orange, Toast.LENGTH_SHORT).show();
                 break;
             }
             case R.id.cRojo: {
-                currentColor = ContextCompat.getColor(this,R.color.rojo);
+                currentColor = R.color.rojo;
                 Log.d("TKT_create","rojo");
-                TAG="rojo";
+                TAG=ROJO;
                 Toast.makeText(context, R.string.burgundy, Toast.LENGTH_SHORT).show();
                 break;
             }
             case R.id.cRed: {
-                currentColor = ContextCompat.getColor(this,R.color.red);
+                currentColor = R.color.red;
                 Log.d("TKT_create","red");
-                TAG="red";
+                TAG=RED;
                 Toast.makeText(context, R.string.red, Toast.LENGTH_SHORT).show();
                 break;
             }
             case R.id.cBlue: {
-                currentColor = ContextCompat.getColor(this,R.color.royal);
+                currentColor = R.color.royal;
                 Log.d("TKT_create","royal");
-                TAG="royal";
+                TAG=ROYAL;
                 Toast.makeText(context, R.string.royal, Toast.LENGTH_SHORT).show();
                 break;
             }
             case R.id.cLightBlue: {
-                currentColor = ContextCompat.getColor(this,R.color.seaBlue);
+                currentColor = R.color.seaBlue;
                 Log.d("TKT_create","seaBlue");
-                TAG="seaBlue";
+                TAG=SEA_BLUE;
                 Toast.makeText(context, R.string.lightBlue, Toast.LENGTH_SHORT).show();
                 break;
             }
             case R.id.cCyan: {
-                currentColor = ContextCompat.getColor(this,R.color.cyan);
+                currentColor = R.color.cyan;
                 Log.d("TKT_create","cyan");
-                TAG="cyan";
+                TAG=CYAN;
                 Toast.makeText(context, R.string.cyan, Toast.LENGTH_SHORT).show();
                 break;
             }
             case R.id.cTurq: {
-                currentColor = ContextCompat.getColor(this,R.color.turquoise);
+                currentColor = R.color.turquoise;
                 Log.d("TKT_create","turqouise");
-                TAG="turquoise";
+                TAG=TURQ;
                 Toast.makeText(context, R.string.turq, Toast.LENGTH_SHORT).show();
                 break;
             }
             case R.id.cAndroidGreen: {
-                currentColor = ContextCompat.getColor(this,R.color.androidGreen);
+                currentColor = R.color.androidGreen;
                 Log.d("TKT_create","androidGreen");
-                TAG="androidGreen";
+                TAG=ANDROID_GREEN;
                 Toast.makeText(context, R.string.darkGreen, Toast.LENGTH_SHORT).show();
                 break;
             }
             case R.id.cGrassGreen: {
-                currentColor = ContextCompat.getColor(this,R.color.grassGreen);
+                currentColor = R.color.grassGreen;
                 Log.d("TKT_create","grassGreen");
-                TAG="grassGreed";
+                TAG=GRASS_GREEN;
                 Toast.makeText(context, R.string.lightGreen, Toast.LENGTH_SHORT).show();
                 break;
             }
             case R.id.cGit: {
-                currentColor = ContextCompat.getColor(this,R.color.git);
+                currentColor = R.color.git;
                 Log.d("TKT_create","git");
-                TAG="git";
+                TAG=GIT;
                 Toast.makeText(context, R.string.git, Toast.LENGTH_SHORT).show();
                 break;
             }
             case R.id.cFuchsiaPink: {
-                currentColor = ContextCompat.getColor(this,R.color.fuchsiaPink);
+                currentColor = R.color.fuchsiaPink;
                 Log.d("TKT_create","fuchsia");
-                TAG="fuchsia";
+                TAG=FUCHSIA;
                 Toast.makeText(context, R.string.fuchsiaPink, Toast.LENGTH_SHORT).show();
                 break;
             }
             case R.id.cPink: {
-                currentColor = ContextCompat.getColor(this,R.color.pink);
+                currentColor = R.color.pink;
                 Log.d("TKT_create","pink");
-                TAG="pink";
+                TAG=PINK;
                 Toast.makeText(context, R.string.pink, Toast.LENGTH_SHORT).show();
                 break;
             }
             case R.id.cOldPink: {
-                currentColor = ContextCompat.getColor(this,R.color.oldPink);
+                currentColor = R.color.oldPink;
                 Log.d("TKT_create","oldPink");
-                TAG="oldPink";
+                TAG=OLD_PINK;
                 Toast.makeText(context, R.string.morePink, Toast.LENGTH_SHORT).show();
                 break;
             }
@@ -455,11 +468,24 @@ public class Create extends AppCompatActivity {
     public void undo()
     {
         Log.d("TKT_create","undo function");
-            Toast.makeText(this, R.string.undo, Toast.LENGTH_SHORT).show();
-            Button remove = stacie.pop();
-            int prevCol = prevColors.pop();
-            remove.setBackgroundColor(prevCol);
-            remove.setTag(getTag(prevCol));
+        Toast.makeText(this, R.string.undo, Toast.LENGTH_SHORT).show();
+        Button remove = stacie.pop();
+        int prevCol = prevColors.pop();
+        String tag = getTag(prevCol);
+        Log.d("TKT_create","tag: "+tag);
+        remove.setBackgroundColor(ContextCompat.getColor(this, prevCol));
+        remove.setTag(tag);
+        if(!tag.equalsIgnoreCase(WHITE)) {
+            state.put(remove.getId(), tag);
+            Log.d("TKT_create","state.remove");
+        }
+        else
+        {
+            state.remove(remove.getId());
+            Log.d("TKT_create","state.remove");
+        }
+
+        Log.d("TKT_create", "undo: stateSize: "+state.size());
     }
 
 
@@ -501,6 +527,7 @@ public class Create extends AppCompatActivity {
 
 
         openDialog.show();
+
 
 
     }
@@ -545,8 +572,11 @@ public class Create extends AppCompatActivity {
                 cleanSlate();
                 if(i == 0)
                     Create.super.onBackPressed();
-                if(i == 2)
+                if(i == 2) {
+                    cleanSlate();
                     Toast.makeText(context, R.string.newFile, Toast.LENGTH_SHORT).show();
+
+                }
                 dialog.dismiss();
 
             }
@@ -760,10 +790,10 @@ public class Create extends AppCompatActivity {
             Log.d("TKT_create","id: "+pair.getKey());
             Button temp = (Button)findViewById((Integer)pair.getKey());
             temp.setBackgroundColor(ContextCompat.getColor(this, R.color.blanco));
-            temp.setTag("white");
+            temp.setTag(WHITE);
         }
-        TAG = "negro";
-        currentColor=ContextCompat.getColor(this, R.color.negro);
+        TAG = NEGRO;
+        currentColor = R.color.negro;
         state.clear();
         stacie.clear();
 
@@ -782,92 +812,93 @@ public class Create extends AppCompatActivity {
      */
     public String getTag(int prevCol)
     {
+        Log.d("TKT_create","getTag");
         switch (prevCol)
         {
             case R.color.blanco:
             {
-                return  "white";
+                return  WHITE;
             }
             case R.color.negro:
             {
-                return "negro";
+                return NEGRO;
             }
             case R.color.lightGray:
             {
-                return "lightGray";
+                return LIGHT_GRAY;
             }
             case R.color.darkGray:
             {
-                return  "darkGray";
+                return  DARK_GRAY;
             }
             case R.color.brown:
             {
-                return  "brown";
+                return  BROWN;
             }
             case R.color.mochaBrown:
             {
-                return "mochaBrown";
+                return MOCHA_BROWN;
             }
             case R.color.amarillo:
             {
-                return  "amarillo";
+                return  AMARILLO;
             }
             case R.color.orange:
             {
-                return  "orange";
+                return  ORANGE;
             }
             case R.color.rojo:
             {
-                return  "rojo";
+                return  ROJO;
             }
             case R.color.royal:
             {
-                return  "royal";
+                return  ROYAL;
             }
             case R.color.seaBlue:
             {
-                return  "seaBlue";
+                return  SEA_BLUE;
             }
             case R.color.cyan:
             {
-                return "cyan";
+                return CYAN;
             }
             case R.color.turquoise:
             {
-                return  "turquoise";
+                return  TURQ;
             }
             case R.color.androidGreen:
             {
-                return  "androidGreen";
+                return  ANDROID_GREEN;
 
             }
             case R.color.grassGreen:
             {
-                return  "grassGreen";
+                return  GRASS_GREEN;
             }
             case R.color.git:
             {
-                return  "git";
+                return  GIT;
             }
             case R.color.fuchsiaPink:
             {
-                return  "fuchsiaPink";
+                return  FUCHSIA;
 
             }
             case R.color.pink:
             {
-                return  "pink";
+                return  PINK;
             }
             case R.color.oldPink:
             {
-                return  "oldPink";
+                return  OLD_PINK;
             }
             case R.color.red:
             {
-                return  "red";
+                return  RED;
             }
         }
-        return  "white";
+        return  WHITE;
     }
 
 
@@ -879,93 +910,114 @@ public class Create extends AppCompatActivity {
     public int getColor(String tag)
     {
 
+        Log.d("TKT_create","getColor");
         switch (tag)
         {
-            case "white":
+            case WHITE:
             {
-                return  ContextCompat.getColor(this,R.color.blanco);
+                Log.d("TKT_create","blanco0: "+ R.color.blanco);
+                return  R.color.blanco;
             }
-            case "negro":
+            case NEGRO:
             {
-                return  ContextCompat.getColor(this,R.color.negro);
+                Log.d("TKT_create","negro0: "+ R.color.negro);
+                return  R.color.negro;
             }
-            case "lightGray":
+            case LIGHT_GRAY:
             {
-                return  ContextCompat.getColor(this,R.color.lightGray);
+                Log.d("TKT_create","lightGray0: "+ R.color.lightGray);
+                return  R.color.lightGray;
 
             }
-            case "darkGray":
+            case DARK_GRAY:
             {
-                return  ContextCompat.getColor(this,R.color.darkGray);
+                Log.d("TKT_create","darkGray0: "+ R.color.darkGray);
+                return  R.color.darkGray;
             }
-            case "brown":
+            case BROWN:
             {
-                return  ContextCompat.getColor(this,R.color.brown);
+                Log.d("TKT_create","brown0: "+ R.color.brown);
+                return  R.color.brown;
             }
-            case "mochaBrown":
+            case MOCHA_BROWN:
             {
-                return  ContextCompat.getColor(this,R.color.mochaBrown);
+                Log.d("TKT_create","mocha0: "+ R.color.mochaBrown);
+                return  R.color.mochaBrown;
             }
-            case "amarillo":
+            case AMARILLO:
             {
-                return  ContextCompat.getColor(this,R.color.amarillo);
+                Log.d("TKT_create","amarillo0: "+ R.color.amarillo);
+                return  R.color.amarillo;
             }
-            case "orange":
+            case ORANGE:
             {
-                return  ContextCompat.getColor(this,R.color.orange);
+                Log.d("TKT_create","orange0: "+ R.color.orange);
+                return  R.color.orange;
             }
-            case "rojo":
+            case ROJO:
             {
-                return  ContextCompat.getColor(this,R.color.rojo);
+                Log.d("TKT_create","rojo0: "+ R.color.rojo);
+                return  R.color.rojo;
             }
-            case "royal":
+            case ROYAL:
             {
-                return  ContextCompat.getColor(this,R.color.royal);
+                Log.d("TKT_create","royal0: "+ R.color.royal);
+                return  R.color.royal;
             }
-            case "seaBlue":
+            case SEA_BLUE:
             {
-                return  ContextCompat.getColor(this,R.color.seaBlue);
+                Log.d("TKT_create","sea0: "+ R.color.seaBlue);
+                return  R.color.seaBlue;
             }
-            case "cyan":
+            case CYAN:
             {
-                return  ContextCompat.getColor(this,R.color.cyan);
+                Log.d("TKT_create","cyan0: "+ R.color.cyan);
+                return  R.color.cyan;
             }
-            case "turquoise":
+            case TURQ:
             {
-                return  ContextCompat.getColor(this,R.color.turquoise);
+                Log.d("TKT_create","turq0: "+ R.color.turquoise);
+                return  R.color.turquoise;
             }
-            case "androidGreen":
+            case ANDROID_GREEN:
             {
-                return  ContextCompat.getColor(this,R.color.androidGreen);
+                Log.d("TKT_create","androidGr0: "+ R.color.androidGreen);
+                return  R.color.androidGreen;
 
             }
-            case "grassGreen":
+            case GRASS_GREEN:
             {
-                return  ContextCompat.getColor(this,R.color.grassGreen);
+                Log.d("TKT_create","grass0: "+ R.color.grassGreen);
+                return  R.color.grassGreen;
             }
-            case "git":
+            case GIT:
             {
-                return  ContextCompat.getColor(this,R.color.git);
+                Log.d("TKT_create","git0: "+ R.color.git);
+                return  R.color.git;
             }
-            case "fuchsiaPink":
+            case FUCHSIA:
             {
-                return  ContextCompat.getColor(this,R.color.fuchsiaPink);
-
+                Log.d("TKT_create","fuchsia0: "+ R.color.fuchsiaPink);
+                return  R.color.fuchsiaPink;
             }
-            case "pink":
+            case PINK:
             {
-                return  ContextCompat.getColor(this,R.color.pink);
+                Log.d("TKT_create","pink0: "+ R.color.pink);
+                return  R.color.pink;
             }
-            case "oldPink":
+            case OLD_PINK:
             {
-                return  ContextCompat.getColor(this,R.color.oldPink);
+                Log.d("TKT_create","oldPink0: "+ R.color.oldPink);
+                return  R.color.oldPink;
             }
-            case "red":
+            case RED:
             {
-                return  ContextCompat.getColor(this,R.color.red);
+                Log.d("TKT_create","red0: "+ R.color.red);
+                return  R.color.red;
             }
         }
-        return  ContextCompat.getColor(this,R.color.blanco);
+        Log.d("TKT_create","none of the above");
+        return  R.color.blanco;
     }
 
 
@@ -979,8 +1031,10 @@ public class Create extends AppCompatActivity {
     public void onBackPressed()
     {
         Log.d("TKT_create","onBackPressed");
-        saveChanges(0);
-        //super.onBackPressed();
+        if(!state.isEmpty())
+            saveChanges(0);
+        else
+            super.onBackPressed();
     }
 
 }

@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">CAK2.2</string>
     <string name="create">יצירה</string>
     <string name="black">שחור</string>
     <string name="burgundy">בורדו</string>
@@ -32,7 +31,6 @@
     <string name="title_activity_default_patterns_screen">דוגמאות</string>
     <string name="erase">מחק</string>
     <string name="ChooseName">בחרו שם לדוגמא</string>
-    <string name="action_settings"></string>
     <string name="cancel">בטל</string>
     <string name="clearOne">מחק</string>
     <string name="deleteFile">מחיקת דוגמא</string>

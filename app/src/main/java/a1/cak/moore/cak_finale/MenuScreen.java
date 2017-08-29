@@ -70,7 +70,6 @@ public class MenuScreen extends AppCompatActivity {
     public void goToDefaultPatternGallery(View v)
     {
         Log.d("TKT_menuScreen","goToDefaultGallery");
-
         Intent intent=new Intent(this, DefaultPatternsScreen.class);
         startActivity(intent);
     }
@@ -102,6 +101,10 @@ public class MenuScreen extends AppCompatActivity {
         super.onResume();
     }
 
+    @Override
+    protected void onRestart() {
+        super.onRestart();
+    }
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {

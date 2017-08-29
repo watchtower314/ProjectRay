@@ -4,7 +4,8 @@
     android:layout_height="match_parent"
     tools:context=".MenuScreen"
     android:background="@color/backGround"
-    android:id="@+id/menuScreen">
+    android:id="@+id/menuScreen"
+    android:layoutDirection="ltr">
 
     <LinearLayout
         android:layout_width="wrap_content"

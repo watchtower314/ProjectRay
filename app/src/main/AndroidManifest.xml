@@ -6,14 +6,14 @@
         android:allowBackup="true"
         android:icon="@mipmap/logo1"
         android:label="@string/app_nombre"
-        android:theme="@style/AppTheme">
+        android:theme="@style/AppTheme"
+        android:largeHeap="true">
         <activity
             android:name=".MenuScreen"
             android:label="@string/app_nombre"
             android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>

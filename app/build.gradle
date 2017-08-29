@@ -8,8 +8,8 @@ android {
         applicationId "a1.cak.moore.cak_finale"
         minSdkVersion 14
         targetSdkVersion 25
-        versionCode 3
-        versionName "1.1"
+        versionCode 4
+        versionName "2.0"
     }
     buildTypes {
         release {
@@ -17,6 +17,7 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
+
 }
 
 dependencies {

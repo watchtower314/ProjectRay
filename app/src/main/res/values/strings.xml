@@ -82,8 +82,8 @@
     <color name="pink">#E455D8</color>
     <color name="oldPink">#E77EAE</color>
     <color name="fuchsiaPink">#f20e75</color>
-    <color name="brown">#9e5006</color>
-    <color name="mochaBrown">#af9e4f06</color>
+    <color name="mochaBrown">#9e5006</color>
+    <color name="brown">#af9e4f06</color>
     <color name="blancoTrans">#90ffffff</color>
     <color name="backGround">#e2dfdf</color>
 
@@ -94,5 +94,7 @@
     <string name="title_activity_how_to">How To Create A Kipa</string>
     <string name="title_activity_info">Info</string>
     <string name="title_activity_default_pattern_screen">Patterns</string>
+    <string name="erase">erase</string>
+    <string name="eraser">eraser</string>
 
 </resources>

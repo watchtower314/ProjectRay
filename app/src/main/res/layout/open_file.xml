@@ -4,8 +4,7 @@
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
     android:id="@+id/openFileDialog"
-    android:layout_gravity="center"
-    android:background="@color/turquoise"
+    android:background="@color/blanco"
 
 
 
@@ -19,14 +18,16 @@
         android:textStyle="bold"
         android:layout_marginBottom="1dp"
         android:background="@color/backGround"
-        android:gravity="center"/>
+        android:gravity="center"
+        android:layout_gravity="center"/>
 
     <ListView
-        android:layout_width="250dp"
+        android:layout_width="match_parent"
         android:layout_height="250dp"
         android:id="@+id/listView"
         android:textAlignment="center"
         android:background="@color/backGround"
+        android:layout_gravity="center"
         >
 
 
